@@ -1,11 +1,10 @@
 <?php
 
-require 'vendor/autoload.php';
 require 'helpers/commom.php';
+require 'vendor/autoload.php';
 
-use GuzzleHttp\Client;
 use Dotenv\Dotenv;
-
+use GuzzleHttp\Client;
 $client = new GuzzleHttp\Client();
 
 $dotenv = new Dotenv( __DIR__ );
@@ -24,7 +23,7 @@ if($type == 'cpf'){
     ]);
 
     $array = xmlConverter(replaceWords($document->getBody()));
-
+    
     echo $array['CADASTRAIS']['NOME'];
     echo "|";
     echo $array['CADASTRAIS']['NOMEMAE'];
