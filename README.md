@@ -1,6 +1,9 @@
 # api-consulta-novavida-congonhas
 Consulta do service congonhas do site http://congonhas.novavidati.com.br para consulta de CPF E CNPJ.
 
+URL Do Ws do nova vida:
+wsnv.novavidati.com.br
+
 ## Requirements:
 - PHP 7.0 (or higher)
 - Composer
