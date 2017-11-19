@@ -11,8 +11,6 @@ $client = new GuzzleHttp\Client();
 $dotenv = new Dotenv( __DIR__ );
 $dotenv->load();
 
-echo $_ENV['cliente'];
-
 if($type == 'cpf'){
 
     $res = $client->request('GET', 'http://wsnv.novavidati.com.br/WSLocalizador.asmx/GerarToken?', [
