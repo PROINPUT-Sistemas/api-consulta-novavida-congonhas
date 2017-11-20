@@ -10,7 +10,6 @@ $dotenv->load();
 
 $service = new Congonhas();
 
-
 if ($type == 'cpf') {
 
     $data = $service->getDocumentData($_ENV['login'], $_ENV['password'], $_ENV['client'], $doc);
@@ -40,7 +39,7 @@ if ($type == 'cpf') {
     echo $data['CADASTRAIS']['DESC_CNAE'];
     echo "|";
     echo $data['CADASTRAIS']['MATRIZ'];
-    
+
 }
 
 
