@@ -26,13 +26,13 @@ http://you_url/api/?type=cpf&document=11111111111 - For CPF
 http://you_url/api/?type=cnpj&document=11111111111111 - For CNPJ
 ```
 
-#Functions:
+# Functions:
 
-##getDocumentData(Login, Password, Client, Document)
+## getDocumentData(Login, Password, Client, Document)
 This method returned the Data for PessoasEmpresasTk in WsLocalizador.
 The data is returned for Pessoa Física and Pessoa Jurídica.
 
-####Pessoa Física:
+#### Pessoa Física:
 ``` php
 (array) 
 ["CADASTRAIS"]=>
@@ -198,7 +198,7 @@ The data is returned for Pessoa Física and Pessoa Jurídica.
 ```
 
 
-##GetToken(Login, Password,Client)
+## GetToken(Login, Password,Client)
 
 this method is private, returned the token for access the others methods.
 Example for return:
