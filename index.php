@@ -21,7 +21,7 @@ if ($type == 'cpf') {
     echo $data['CADASTRAIS']['NASCIMENTO'];
     echo "|";
     echo $data['CADASTRAIS']['SEXO'];
-
+    
 } elseif ($type == 'cnpj') {
 
     $data = $service->getDocumentData($_ENV['login'], $_ENV['password'], $_ENV['client'], $doc);
