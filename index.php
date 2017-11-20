@@ -1,71 +1,46 @@
 <?php
 
-require 'vendor/autoload.php';
+require 'class/Congonhas.php';
 
-use Dotenv\Dotenv;
-use GuzzleHttp\Client;
-
-
-$document_number = $_GET['document'];
+$doc = $_GET['document'];
 $type = $_GET['type'];
 
-$client = new GuzzleHttp\Client();
-
-$dotenv = new Dotenv( __DIR__ );
+$dotenv = new \Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
-if($type == 'cpf'){
+$service = new Congonhas();
 
-    $res = $client->request('GET', 'http://wsnv.novavidati.com.br/WSLocalizador.asmx/GerarToken?', [
-        'query'=> ['usuario'=> $_ENV['usuario'], 'senha' => $_ENV['senha'] , 'cliente' => $_ENV['cliente']]
-    ]);
 
-    $token = replaceWords($res->getBody());
+if ($type == 'cpf') {
 
-    $document = $client->request('GET', 'http://wsnv.novavidati.com.br/WSLocalizador.asmx/PessoasEmpresasTk?', [
-        'query'=> ['documento'=> $document_number, 'token' => $token]
-    ]);
+    $data = $service->getDocumentData($_ENV['login'], $_ENV['password'], $_ENV['client'], $doc);
 
-    $array = xmlConverter(replaceWords($document->getBody()));
-
-    echo $array['CADASTRAIS']['NOME'];
+    echo $data['CADASTRAIS']['NOME'];
     echo "|";
-    echo $array['CADASTRAIS']['NOMEMAE'];
+    echo $data['CADASTRAIS']['NOMEMAE'];
     echo "|";
-    echo $array['CADASTRAIS']['NASCIMENTO'];
+    echo $data['CADASTRAIS']['NASCIMENTO'];
     echo "|";
-    echo $array['CADASTRAIS']['SEXO'];
+    echo $data['CADASTRAIS']['SEXO'];
 
-    var_dump($array);
+} elseif ($type == 'cnpj') {
 
-} elseif ($type == 'cnpj'){
+    $data = $service->getDocumentData($_ENV['login'], $_ENV['password'], $_ENV['client'], $doc);
 
-    $res = $client->request('GET', 'http://wsnv.novavidati.com.br/WSLocalizador.asmx/GerarToken?', [
-        'query'=> ['usuario'=> $user, 'senha' => $pass , 'cliente' => $customer]
-    ]);
-
-    $token = replaceWords($res->getBody());
-
-    $document = $client->request('GET', 'http://wsnv.novavidati.com.br/WSLocalizador.asmx/PessoasEmpresasTk?', [
-        'query'=> ['documento'=> $document_number, 'token' => $token]
-    ]);
-
-    $array = xmlConverter(replaceWords($document->getBody()));
-
-    echo $array['CADASTRAIS']['RAZAO'];
+    echo $data['CADASTRAIS']['RAZAO'];
     echo "|";
-    echo $array['CADASTRAIS']['NOME_FANTASIA'];
+    echo $data['CADASTRAIS']['NOME_FANTASIA'];
     echo "|";
-    echo $array['CADASTRAIS']['DATA_ABERTURA'];
+    echo $data['CADASTRAIS']['DATA_ABERTURA'];
     echo "|";
-    echo $array['CADASTRAIS']['DESC_NATJUR'];
+    echo $data['CADASTRAIS']['DESC_NATJUR'];
     echo "|";
-    echo $array['CADASTRAIS']['CNAE'];
+    echo $data['CADASTRAIS']['CNAE'];
     echo "|";
-    echo $array['CADASTRAIS']['DESC_CNAE'];
+    echo $data['CADASTRAIS']['DESC_CNAE'];
     echo "|";
-    echo $array['CADASTRAIS']['MATRIZ'];
-
+    echo $data['CADASTRAIS']['MATRIZ'];
+    
 }
 
 
