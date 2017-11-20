@@ -198,7 +198,7 @@ The data is returned for Pessoa Física and Pessoa Jurídica.
 ```
 
 
-### GetToken(Login, Password,Client)
+#### GetToken(Login, Password,Client)
 
 this method is private, returned the token for access the others methods.
 Example for return:
