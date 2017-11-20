@@ -2,8 +2,8 @@
 <p align="center"><img src="http://congonhas.novavidati.com.br/images/logo.png"></p>
 Consulta do service congonhas do site http://congonhas.novavidati.com.br para consulta de CPF E CNPJ.
 
-URL Do Ws do nova vida:
-wsnv.novavidati.com.br
+WS do nova vida:
+http://wsnv.novavidati.com.br
 
 ## Requirements:
 - PHP 7.0 (or higher)
@@ -25,6 +25,8 @@ Open your browser and use the url to perform the data search.
 http://you_url/api/?type=cpf&document=11111111111 - For CPF
 http://you_url/api/?type=cnpj&document=11111111111111 - For CNPJ
 ```
+
+in the index.php is a example for get data in array.
 
 ### Functions:
 
@@ -206,6 +208,56 @@ Example for return:
 (string) cHJvbm9ydGh3c3xwcm9ub3J0aDIwMTd8cHJvbm9ydGh8NTg5Nnw1MF9UcnVlOzUxX1RydWU7NTJfVHJ1ZTs1M19UcnVlOzU0X1RydWU7NTVfVHJ1ZTs1Nl9UcnVlOzU3X1RydWU7NThfVHJ1ZTs1OV9UcnVlOzYwX1RydWU7NzBfVHJ1ZTs3MV9UcnVlOzcyX1RydWU7NzlfVHJ1ZTs4NF9UcnVlOzk0X1RydWU7OTZfVHJ1ZTs5N19UcnVlOzk5X1RydWU7NjFfVHJ1ZTs2Ml9UcnVlOzYzX1RydWU7NjRfVHJ1ZTs2NV9UcnVlOzY2X1RydWU7NjdfVHJ1ZTs2OF9UcnVlOzY5X1RydWU7NzNfVHJ1ZTs3NF9UcnVlOzc1X1RydWU7NzZfVHJ1ZTs4MF9UcnVlOzk4X1RydWU7fDU3MjM2MzR8OTh8MjAxMTIwMTcxNzA4MjB8MjAxLjYuMjI3LjI0MQ
 ```
 
+#### getCadastralSituation(Login, Password, Client, Document)
+This method returned the array value for status for document.
+``` php
+array(4) {
+  ["DESCRICAO"]=>
+  string(7) "REGULAR"
+  ["DATA"]=>
+  string(10) "2014-12-04"
+  ["HORA"]=>
+  string(8) "09:52:00"
+  ["COD_CONTROLE"]=>
+  string(19) "172E.F9F3.69B9.121D"
+}
+```
+
+#### getSociodemographicProfile(Login, Password, Client, Document)
+This Method returned the values for people owner document.
+``` php
+array(1) {
+  ["PERFILSOCIO"]=>
+  array(6) {
+    [0]=>
+    string(10) "ATÉ 1.000"
+    [1]=>
+    string(13) "ENSINO MÉDIO"
+    [2]=>
+    string(15) "NÃO DISPONIVEL"
+    [3]=>
+    string(15) "NÃO DISPONIVEL"
+    [4]=>
+    string(1) "C"
+    [5]=>
+    string(37) "PROGRAMADOR DE SISTEMAS DE INFORMACAO"
+  }
+}
+```
+#### getAffinity(Login, Password, Client, Document)
+This Method returned the Affinity for people owner document.
+
+``` php
+array(1) {
+  ["CONSUMO"]=>
+  array(2) {
+    [0]=>
+    string(29) "INTERESSADOS EM PACOTES DE TV"
+    [1]=>
+    string(35) "INTERESSADOS EM PACOTES DE INTERNET"
+  }
+}
+``` 
 
 ### Configuration:
 
