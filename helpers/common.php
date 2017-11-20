@@ -16,6 +16,3 @@ function xmlConverter($string)
     $configData = json_decode($array, true);
     return $configData;
 }
-
-$document_number = $_GET['document'];
-$type = $_GET['type'];

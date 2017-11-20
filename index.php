@@ -1,10 +1,14 @@
 <?php
 
-require 'helpers/commom.php';
 require 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use GuzzleHttp\Client;
+
+
+$document_number = $_GET['document'];
+$type = $_GET['type'];
+
 $client = new GuzzleHttp\Client();
 
 $dotenv = new Dotenv( __DIR__ );
@@ -23,7 +27,7 @@ if($type == 'cpf'){
     ]);
 
     $array = xmlConverter(replaceWords($document->getBody()));
-    
+
     echo $array['CADASTRAIS']['NOME'];
     echo "|";
     echo $array['CADASTRAIS']['NOMEMAE'];
@@ -31,6 +35,8 @@ if($type == 'cpf'){
     echo $array['CADASTRAIS']['NASCIMENTO'];
     echo "|";
     echo $array['CADASTRAIS']['SEXO'];
+
+    var_dump($array);
 
 } elseif ($type == 'cnpj'){
 

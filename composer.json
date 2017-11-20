@@ -1,5 +1,5 @@
 {
-    "name": "santiagomarcos/api.novavida.ti",
+    "name": "PROINPUT-Sistemas/api-consulta-novavida-congonhas",
     "description": "API",
     "type": "API",
     "require": {
@@ -9,8 +9,18 @@
     },
     "authors": [
         {
-            "name": "Marcos Santiago",
+            "name": "Marcos Felipe de Andrade Santiago",
             "email": "marcos14952010@hotmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "files": [
+            "helpers/common.php"
+        ]
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    }
 }
