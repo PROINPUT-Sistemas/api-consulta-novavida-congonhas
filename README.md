@@ -2,7 +2,7 @@
 <p align="center"><img src="http://congonhas.novavidati.com.br/images/logo.png"></p>
 Consulta do service congonhas do site http://congonhas.novavidati.com.br para consulta de CPF E CNPJ.
 
-WS do nova vida:
+WSLocalizador nova vida TI:
 http://wsnv.novavidati.com.br
 
 ## Requirements:
@@ -256,6 +256,15 @@ array(1) {
     [1]=>
     string(35) "INTERESSADOS EM PACOTES DE INTERNET"
   }
+}
+``` 
+
+#### getVehicle(Login, Password, Client, Document)
+This Method returned the Vehicles for people owner document.
+
+``` php
+array(1) {
+  NOT AVAILIABLE
 }
 ``` 
 
